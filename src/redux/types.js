@@ -1,0 +1,7 @@
+export const AUTH = "AUTH"
+export const ALERT = "ALERT"
+export const PEER = "PEER"
+export const SOCKET = "SOCKET"
+export const ONLINE = "ONLINE"
+export const OFFLINE = "OFFLINE"
+export const UPDATE_USER_ACTIVE_DATE = "UPDATE_USER_ACTIVE_DATE"
