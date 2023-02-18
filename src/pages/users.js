@@ -21,16 +21,18 @@ const Users = () => {
   }, [auth.token]);
 
   return (
-    <div className='pt-5 container pl-4 pr-4'>
+    <div className='pt-5 container' style={{zIndex: "2"}}>
       <h1 className='text-2xl uppercase text-secondary pb-5 text-center'>
         Users
       </h1>
-      <button className='btn btn-primary' onClick={async () =>{
+      <div style={{display: 'inline-block', position:"relative"}}>
+      <span className='btn btn-primary flex' onClick={async () =>{
          await navigate('/')
          await navigate(0)
-      }}>Back</button>
+      }}>Back</span>
+      </div>
       <div className='table-responsive pt-3'>
-        <table className='table table-hover'>
+        <table className='table dark:text-white'>
           <thead>
             <tr>
               <th scope='col'>Avatar</th>

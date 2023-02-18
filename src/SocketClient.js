@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { OFFLINE, ONLINE, UPDATE_USER_ACTIVE_DATE } from './redux/types';
+import { OFFLINE, ONLINE, UPDATE_USER_ACTIVE_DATE, CALL, ALERT } from './redux/types';
 
 const SocketClient = () => {
-  const { auth, online, socket, peer } = useSelector((state) => state);
+  const { auth, online, socket, peer, call } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   // joinServer
@@ -53,6 +53,34 @@ const SocketClient = () => {
       return () => socket.off('CheckUserOffline');
     }
   }, [socket, dispatch]);
+
+    // Call User
+    useEffect(() => {
+     if(socket) {
+      socket.on("callUserToClient", (data) => {
+        dispatch({ type: CALL, payload: data });
+      });
+      return () => socket.off("callUserToClient");
+     }
+    }, [socket, dispatch]);
+
+    
+  useEffect(() => {
+    if(socket) {
+      socket.on("userBusy", (data) => {
+        dispatch({
+          type: ALERT,
+          payload: { error: `${call?.username} is busy` },
+        });
+        dispatch({
+          type: CALL,
+          payload: null,
+        });
+      });
+      return () => socket.off("userBusy");
+    }
+  }, [socket, dispatch, call]);
+  
 
   return <div></div>;
 };

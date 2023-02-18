@@ -81,7 +81,8 @@ export const logout = () => async (dispatch) => {
   try {
     localStorage.removeItem('firstLogin');
     await postDataAPI('logout');
-    window.location.href = '/';
+    await dispatch({ type: ALERT, payload: { success: 'Logout Success' } });
+    // window.location.href = '/';
   } catch (err) {
     dispatch({
       type: ALERT,

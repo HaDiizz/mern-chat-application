@@ -58,7 +58,7 @@ const Signup = () => {
 
   return (
     <div className='h-screen w-full flex flex-wrap justify-center'>
-    <div className='flex flex-col items-center justify-center'>
+    <div className='flex flex-col items-center justify-center' style={{zIndex: "1"}}>
       <h1 className='text-4xl uppercase'>Sign Up</h1><br/>
       <form onSubmit={handleSubmit}>
         {notify}
