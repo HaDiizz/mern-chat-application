@@ -240,10 +240,22 @@ const handleAnswer = () => {
       <div className='pt-[5rem] text-center h-screen justify-center items-center'>
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
           <div className='flex flex-col gap-7' style={{zIndex: "1"}}>
-          {<video ref={youVideo} className="you_video" playsInline muted autoPlay />}
-         { <video ref={otherVideo} className="other_video" playsInline autoPlay/>}
+         <div className="call_modal">
+         {
+          connect &&
+         <>
+          <div className="you_video_container">
+          <video ref={youVideo} className="you_video border-2 border-neutral-300" playsInline muted autoPlay />
+          </div>
+          <video ref={otherVideo} className="other_video border-2 border-neutral-300" playsInline autoPlay/>
+         </>
+         }
+         </div>
             <span className='flex text-center justify-center gap-5'><h4> Peer ID: {id}</h4> <TfiReload className='hover:cursor-pointer' onClick={() => navigate(0)} /></span>
-            <button className='btn btn-danger' onClick={handleEndCall}>Disconnect</button>
+            {
+              connect &&
+              <button className='btn btn-danger' onClick={handleEndCall}>Disconnect</button>
+            }
             {connect ? (
               <h6 style={{ color: 'green' }}>Connected</h6>
             ) : (

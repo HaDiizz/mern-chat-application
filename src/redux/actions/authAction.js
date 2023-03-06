@@ -12,8 +12,10 @@ export const login = (data) => async (dispatch) => {
       payload: { token: res.data.access_token, user: res.data.user },
     });
     localStorage.setItem('firstLogin', true);
+    localStorage.setItem("rf_token",  res.data.refresh_token);
 
     dispatch({ type: ALERT, payload: { success: res.data.msg } });
+    
   } catch (err) {
     dispatch({
       type: ALERT,
@@ -24,10 +26,11 @@ export const login = (data) => async (dispatch) => {
 
 export const refreshToken = () => async (dispatch) => {
   const firstLogin = localStorage.getItem('firstLogin');
+  const rf_token = localStorage.getItem("rf_token");
   if (firstLogin) {
     dispatch({ type: ALERT, payload: { loading: true } });
     try {
-      const res = await postDataAPI('refresh_token');
+      const res = await postDataAPI('refresh_token', {rf_token});
       dispatch({
         type: AUTH,
         payload: { token: res.data.access_token, user: res.data.user },
@@ -49,7 +52,6 @@ export const register = (data) => async (dispatch) => {
     let media;
 
     if (avatar) media = await imageUpload([avatar]);
-    dispatch({ type: ALERT, payload: { loading: true } });
     const res = await postDataAPI('register', {
       ...data,
       avatar: avatar ? media[0].url : '',
@@ -63,6 +65,7 @@ export const register = (data) => async (dispatch) => {
     });
 
     localStorage.setItem('firstLogin', true);
+    localStorage.setItem("rf_token",  res.data.refresh_token);
     dispatch({
       type: ALERT,
       payload: {
@@ -80,6 +83,7 @@ export const register = (data) => async (dispatch) => {
 export const logout = () => async (dispatch) => {
   try {
     localStorage.removeItem('firstLogin');
+    localStorage.removeItem("rf_token");
     await postDataAPI('logout');
     await dispatch({ type: ALERT, payload: { success: 'Logout Success' } });
     // window.location.href = '/';

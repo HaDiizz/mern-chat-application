@@ -48,7 +48,6 @@ const Signup = () => {
       return;
     }
     dispatch(register(userData))
-    setNotify("สมัครสมาชิกสำเร็จ")
     return;
   };
 
@@ -108,7 +107,7 @@ const Signup = () => {
            Have an account already?
             <Link
               style={{
-                color: 'blue',
+                color: 'orange',
                 paddingLeft: '5px',
                 textDecoration: 'none',
               }}

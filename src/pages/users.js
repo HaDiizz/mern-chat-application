@@ -21,18 +21,29 @@ const Users = () => {
   }, [auth.token]);
 
   return (
-    <div className='pt-5 container' style={{zIndex: "2"}}>
-      <h1 className='text-2xl uppercase text-secondary pb-5 text-center'>
+    <div className='pt-5 container'>
+      <h1
+        className='text-2xl uppercase text-secondary pb-5 text-center tracking-widest'
+        style={{ zIndex: '1', position: 'relative' }}
+      >
         Users
       </h1>
-      <div style={{display: 'inline-block', position:"relative"}}>
-      <span className='btn btn-primary flex' onClick={async () =>{
-         await navigate('/')
-         await navigate(0)
-      }}>Back</span>
+      <div style={{ display: 'inline-block', position: 'relative' }}>
+        <span
+          className='btn btn-primary flex'
+          onClick={async () => {
+            await navigate('/');
+            await navigate(0);
+          }}
+        >
+          Back
+        </span>
       </div>
       <div className='table-responsive pt-3'>
-        <table className='table dark:text-white'>
+        <table
+          className='table dark:text-white'
+          style={{ zIndex: '1', position: 'relative' }}
+        >
           <thead>
             <tr>
               <th scope='col'>Avatar</th>
@@ -45,7 +56,13 @@ const Users = () => {
             {users.length > 0 &&
               users?.map((user) => (
                 <tr key={user._id}>
-                  <td><img src={user.avatar} className='medium-avatar' alt="avatar" /></td>
+                  <td>
+                    <img
+                      src={user.avatar}
+                      className='medium-avatar'
+                      alt='avatar'
+                    />
+                  </td>
                   <td>{user.username}</td>
                   <td>
                     {user.role === 'admin' ? (

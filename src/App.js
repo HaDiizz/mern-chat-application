@@ -29,7 +29,7 @@ function App() {
     <div
       className='dark:text-white bg-cover'
     >
-      {/* <div className='primary_bg dark:bg-neutral-900' style={{ zIndex: '0' }}></div> */}
+      <div className='primary_bg dark:bg-neutral-900' style={{ zIndex: '0' }}></div>
       <div className='container'>
         {auth.user && <Navbar />}
         <Alert />

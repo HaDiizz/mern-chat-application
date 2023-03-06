@@ -5,13 +5,15 @@ const Alert = ({ msg }) => {
   useEffect(() => {
     if (msg.statusErr) {
         toast.error(`${msg.msg}`, {
+          id: 'clipboard',
         });
       }
       if (msg.statusSucc) {
         toast.success(`${msg.msg}`, {
+          id: 'clipboard',
         });
       }
-  }, [msg.msg]);
+  }, []);
 
   return <Toaster />
 };

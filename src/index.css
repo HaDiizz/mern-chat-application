@@ -52,3 +52,54 @@ code {
   height: auto;
   position: fixed;
 }
+
+::-webkit-scrollbar {
+  width: 0.3em;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(96, 96, 96);
+  outline: 1px solid rgb(15, 0, 32);
+}
+
+.call_modal {
+  position: relative;
+}
+
+.call_modal .other_video {
+  width: 100%;
+  height: 100%;
+  resize: both;
+  overflow: auto;
+}
+
+.call_modal .you_video_container {
+  position: absolute;
+  padding: 20px; 
+  top: 0;
+  left: 0;
+  width: 300px;
+  z-index: 10;
+  /* resize: both;
+  overflow: auto;
+  max-width: 70%; 
+  max-height: 70%;  */
+}
+.call_modal .you_video {
+  position: relative;
+  top: 0;
+  right: 0;
+  width: 100%;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+@media screen and (width < 1600px) {
+  .call_modal .you_video {
+    width: 15vh;
+  }
+}

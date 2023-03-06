@@ -79,7 +79,7 @@ const Login = () => {
               Not sign up yet?
               <Link
                 style={{
-                  color: 'blue',
+                  color: 'orange',
                   paddingLeft: '5px',
                   textDecoration: 'none',
                 }}
