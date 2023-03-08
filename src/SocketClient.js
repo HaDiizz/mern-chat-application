@@ -49,6 +49,7 @@ const SocketClient = () => {
     if (socket) {
       socket.on('CheckUserOffline', (id) => {
         dispatch({ type: OFFLINE, payload: id });
+        dispatch({ type: CALL, payload: null });
       });
       return () => socket.off('CheckUserOffline');
     }
