@@ -47,9 +47,13 @@ const SocketClient = () => {
 
   useEffect(() => {
     if (socket) {
-      socket.on('CheckUserOffline', (id) => {
+      socket.on('CheckUserOffline', (id, call_id) => {
         dispatch({ type: OFFLINE, payload: id });
-        dispatch({ type: CALL, payload: null });
+        // if(call_id){
+        //   if(auth?.user._id === id || auth?.user._id === call_id) {
+        //     dispatch({ type: CALL, payload: null });
+        //   }
+        // }
       });
       return () => socket.off('CheckUserOffline');
     }

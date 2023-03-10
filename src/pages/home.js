@@ -187,7 +187,6 @@ const Home = () => {
     }
   }, [socket, call, dispatch, newCall, tracks]);
 
-
   function send() {
     conn.send(sendMessage);
   }
@@ -241,11 +240,6 @@ const Home = () => {
                 onClick={() => navigate(0)}
               />
             </span>
-            {connect && (
-              <button className='btn btn-danger' onClick={handleEndCall}>
-                Disconnect
-              </button>
-            )}
             {connect ? (
               <h6 style={{ color: 'green' }}>Connected</h6>
             ) : (
@@ -258,13 +252,20 @@ const Home = () => {
               className='form-control'
               onChange={(e) => setDest(e.target.value)}
             />
-            <button
-              type='submit'
-              className='btn btn-success bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold'
-              onClick={startConnection}
-            >
-              Connect
-            </button>
+            {connect ? (
+              <button className='btn btn-danger' onClick={handleEndCall}>
+                Disconnect
+              </button>
+            ) : (
+              <button
+                type='submit'
+                className='btn btn-success bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold'
+                onClick={startConnection}
+              >
+                Connect
+              </button>
+            )}
+
             <br />
             <input
               type='text'
