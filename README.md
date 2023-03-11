@@ -51,7 +51,36 @@ Load Testing
 --------
 * K6 Code Testing
 
-![image](https://user-images.githubusercontent.com/114381896/224489049-59fc37cf-4398-45aa-882b-daf43d9aa205.png)
+```js
+import http from "k6/http";
+import { check, sleep } from "k6";
+
+export let options = {
+  vus: 100,
+  duration: "30s",
+};
+
+export default function () {
+  let loginRes = http.post("http://localhost:5000/api/login", {
+    username: "user",
+    password: "user123",
+  });
+  check(loginRes, {
+    "login status is 200": (r) => r.status === 200,
+    "auth token is not empty": (r) => r.json("accessToken") !== "",
+  });
+  let loginRes2 = http.post("http://localhost:5000/api/login", {
+    username: "admin",
+    password: "admin123",
+  });
+  check(loginRes2, {
+    "login status is 200": (r) => r.status === 200,
+    "auth token is not empty": (r) => r.json("accessToken") !== "",
+  });
+
+  sleep(1);
+}
+```
 
 * [Success 222 max_vus] Logged In as Admin Account and GET Data api/users [308KB]
 
