@@ -47,6 +47,29 @@ Demo
 
 ![image](https://user-images.githubusercontent.com/114381896/224270362-04fb7a46-76b2-4ba6-8605-fc147e6d733c.png)
 
+Load Testing
+--------
+* K6 Code Testing
+
+![image](https://user-images.githubusercontent.com/114381896/224489049-59fc37cf-4398-45aa-882b-daf43d9aa205.png)
+
+* [Success 222 max_vus] Logged In as Admin Account and GET Data api/users [308KB]
+
+![image](https://user-images.githubusercontent.com/114381896/224489079-8e3f1d70-c000-45ec-94e9-8e3d45f2d821.png)
+
+* [Failed 223 max_vus] Logged In as Admin Account and GET Data api/users [308KB]
+
+![image](https://user-images.githubusercontent.com/114381896/224489117-b064e410-6ab5-42b7-a694-cce9c309623d.png)
+
+* [Success 247 max_vus] Logged In as User Account  
+
+![image](https://user-images.githubusercontent.com/114381896/224489154-be060827-ea60-4931-a0d1-dd41bea25523.png)
+
+* [Failed 248 max_vus] Logged In as User Account  
+
+![image](https://user-images.githubusercontent.com/114381896/224489170-482a5686-ab44-4149-b5d5-ea90d63bde5d.png)
+
+
 Tech Stacks and Libraries
 --------
 -   ReactJS 
@@ -70,6 +93,7 @@ Tech Stacks and Libraries
 -   Mongoose
 -   Jsonwebtoken
 -   PM2
+-   K6
 
 
 -------
@@ -207,6 +231,7 @@ That's it! You've now created a PM2 cluster with three instances and monitored t
 
 ![image](https://user-images.githubusercontent.com/114381896/223625805-71083e06-7f53-4f70-b806-1647f06098df.png)
 ![image](https://user-images.githubusercontent.com/114381896/223626579-7eb4b378-0c9c-4c80-b662-a000b43a39b9.png)
+
 
 
 
