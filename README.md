@@ -1,7 +1,10 @@
 MERN Video Chat Application (Chatify)
 ===========================
  *เป็น Application ที่สร้างขึ้นโดยใช้ MERN Stack (MongoDB, Express, React, NodeJS) เป็นแอปพลิเคชันไว้สำหรับแชท วิดีโอคอล โดยผู้ใช้จะต้องเข้าสู่ระบบก่อนการใช้งานแอปพลิเคชัน ซึ่งในระบบจะมี 2 roles อยู่ด้วยกันคือ admin และ user. Admin สามารถดู User List ทั้งหมดที่มีอยู่ในระบบได้*
-  
+
+Preview Demo
+--------
+[Chatify](https://sc-chatify.netlify.app)
 Link
 -------
 
