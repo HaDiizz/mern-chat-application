@@ -5,6 +5,7 @@ MERN Video Chat Application (Chatify)
 Preview Demo
 --------
 [Chatify](https://sc-chatify.netlify.app)
+
 Link
 -------
 
